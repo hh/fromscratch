@@ -1,0 +1,12 @@
+node_name '<%=@chef_user['id']%>'
+client_key '<%=File.join(node['fromscratch']['chef_users_basedir'],"#{@chef_user['id']}.pem")%>'
+
+validation_client_name   "<%= @chef_organization['validation_client_name'] %>"
+chef_server_url "<%= @chef_organization['chef_server'] %>"
+validation_key "<%= File.join(node['fromscratch']['chef_orgs_basedir'],@chef_organization['id'],'org-knife.rb')%>"
+
+knife[:aws_access_key_id] = "<%= @aws['aws_access_key_id'] %>"
+knife[:aws_secret_access_key] = "<%= @aws['aws_secret_access_key'] %>"
+<% if @aws['aws_ssh_key_id'] -%>
+knife[:aws_ssh_key_id] = "<%= @aws['aws_ssh_key_id'] %>"
+<% end -%>
