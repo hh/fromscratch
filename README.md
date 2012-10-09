@@ -14,9 +14,9 @@ and chef-user credentials for the workstation.
 
 It uses an ingredients folder instead of the data_bag folder for the chef-solo run.
 
-* aws_accounts
-* chef_organizations
-* chef_users
+* ./ingredients/aws_accounts/FOO.json
+* ./ingredients/chef_organizations/BAR.json
+* ./ingredients/chef_users/BAZ.json
 
 It uses the shelf folder instead of the cookbooks folder to contain the 'fromscratch' recipe.
 
@@ -25,7 +25,7 @@ It uses the shelf folder instead of the cookbooks folder to contain the 'fromscr
 Requirements
 ============
 
-Ruby and bundler. (needs testing on windows)
+Ruby, bundler, and the from scratch ingredient data_bags populated.
 
 Data Bags / Ingredients
 =======================
@@ -47,6 +47,7 @@ Cut and paste the output as the values to keys needing them.
 aws_accounts
 ============
 
+./ingredients/aws_accounts/myaccount.json
 
 ```javascript
 {
@@ -67,6 +68,8 @@ aws_accounts
 chef_organizations
 ==================
 
+./ingredients/chef_organizations/myorg.json
+
 ```javascript
 { 
   "id": "myorg",
@@ -78,6 +81,8 @@ chef_organizations
 
 chef_users
 ==================
+
+./ingredients/chef_users/myuser.json
 
 ```javascript
 { 
